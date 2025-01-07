@@ -1,0 +1,7 @@
+- [x] Parse `{}`
+- [ ] Parse `{"key": "value"}`
+- [ ] Parse Numbers
+- [ ] Parse Booleans
+- [ ] Parse Null
+- [ ] Parse Objects
+- [ ] Parse Arrays

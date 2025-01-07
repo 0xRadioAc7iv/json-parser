@@ -1,0 +1,15 @@
+{
+  "name": "json-parser",
+  "version": "1.0.0",
+  "main": "./bin/index.js",
+  "type": "module",
+  "author": "Manav Gadhiya",
+  "license": "MIT",
+  "description": "",
+  "bin": {
+    "jp": "./bin/index.js"
+  },
+  "dependencies": {
+    "commander": "^13.0.0"
+  }
+}
