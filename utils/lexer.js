@@ -1,18 +1,21 @@
-import { JSON_LEFTBRACE, JSON_RIGHTBRACE } from "./constants.js";
+import { JSON_COLON, JSON_LEFTBRACE, JSON_RIGHTBRACE } from "./constants.js";
+
+const JSON_WHITESPACE = [" ", "\t", "\b", "\n", "\r"];
+const JSON_SYNTAX = [JSON_LEFTBRACE, JSON_RIGHTBRACE, JSON_COLON];
 
 export const lexer = (string) => {
   let tokens = [];
 
-  for (let i = 0; i < string.length; i++) {
-    let char = string[i];
+  while (string) {
+    let c = string[0];
 
-    if (i == 0) {
-      if (char == JSON_LEFTBRACE) tokens.push(char);
-      else {
-        throw new Error(`Unexpected character: ${char}`);
-      }
+    if (JSON_WHITESPACE.includes(c)) {
+      string = string.substring(1);
+    } else if (JSON_SYNTAX.includes(c)) {
+      tokens.push(c);
+      string = string.substring(1);
     } else {
-      if (char == JSON_RIGHTBRACE) tokens.push(char);
+      throw new Error(`Unexpected Character: ${c}`);
     }
   }
 

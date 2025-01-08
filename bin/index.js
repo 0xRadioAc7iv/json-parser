@@ -12,10 +12,10 @@ program
   .option("-p, --parse <json>", "Parse a JSON string into an object")
   .option("-s, --stringify <object>", "Stringify an object into a JSON string")
   .action((options) => {
-    if (options.parse) {
+    if (options.parse || options.parse == "") {
       try {
-        const parsedObject = parseJSON(options.parse);
-        console.log(parsedObject);
+        const { json_object } = parseJSON(options.parse);
+        console.log(json_object);
       } catch (error) {
         console.error(error.message);
         process.exit(1);
